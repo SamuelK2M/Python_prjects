@@ -11,7 +11,7 @@ import random
 
  
 
-number = random.randint(1, 100)
+number_ranged = random.randint(1, 100)
 
 
 
@@ -21,24 +21,30 @@ number = random.randint(1, 100)
 while True:
     try:
         guess = int(input('Guess the number between 1 and 100: ').lower())
-    except valueError:
-        print ('Please enter a valid number')
-    
+
+#user input should stays between the range
         if guess > 100:
             print ('Number above range. Try again')
         elif  guess < 0 :
             print ('Number below range. Try again')
 
 
-    if guess > number:
-        print('Too High !')
+
+        if guess > number_ranged:
+            print('Too High !')
           
-    elif guess < number:
-        print('Too Low !')
-    elif guess == number:
+        elif guess < number_ranged:
+            print('Too Low !')
+        elif guess == number_ranged:
     
-        print ('Congrats !!! You guessed the number.')
-        break
+            print ('Congrats !!! You guessed the number.')
+            break
+
+    except ValueError:
+        print ('Please enter a valid number')
+    
+        
+
 
     
 
